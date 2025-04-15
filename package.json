@@ -1,0 +1,48 @@
+{
+  "name": "action-jsr-publish",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "A github action to publish a package to JSR",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "premove coverage lib",
+    "prebuild": "npm run clean",
+    "build": "npm run build:typecheck && npm run build:ncc",
+    "build:ncc": "ncc build --minify --no-source-map-register --no-cache src/index.ts --out lib",
+    "build:typecheck": "tsc --noEmit",
+    "lint": "npm run lint:js && npm run lint:format",
+    "lint:js": "eslint src",
+    "lint:format": "prettier --check src",
+    "format": "prettier --write src",
+    "test": "echo \"No tests yet!\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/43081j/action-jsr-publish.git"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "jsr"
+  ],
+  "author": "James Garbutt (https://github.com/40381j)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/43081j/action-jsr-publish/issues"
+  },
+  "homepage": "https://github.com/43081j/action-jsr-publish#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@types/node": "^22.14.1",
+    "@vercel/ncc": "^0.38.3",
+    "eslint": "^9.24.0",
+    "premove": "^4.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.30.1"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "tinyexec": "^1.0.1"
+  }
+}

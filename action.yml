@@ -1,0 +1,26 @@
+name: Publish to jsr.io
+description: Publish package to jsr.io
+inputs:
+  version:
+    description: Override the "version" in jsr.json
+    required: false
+  package_json_file:
+    description: File path to the package.json of this package
+    required: false
+    default: 'package.json'
+  jsr_json_file:
+    description: File path to the jsr.json to publish
+    required: false
+    default: 'jsr.json'
+  use_package_json_version:
+    description: Use "version" from package.json to publish
+    required: false
+    default: 'false'
+  dry_run:
+    description: Do not publish, just print what would happen
+    required: false
+    default: 'false'
+runs:
+  using: node20
+  main: lib/index.js
+  post: lib/index.js
