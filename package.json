@@ -33,7 +33,7 @@
   "homepage": "https://github.com/43081j/action-jsr-publish#readme",
   "devDependencies": {
     "@eslint/js": "^9.24.0",
-    "@types/node": "^22.15.2",
+    "@types/node": "^22.15.3",
     "@vercel/ncc": "^0.38.3",
     "eslint": "^9.25.1",
     "premove": "^4.0.0",
